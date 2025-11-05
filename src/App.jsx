@@ -1,28 +1,27 @@
-import { useState } from 'react'
+import Navbar from './components/Navbar';
+import Hero from './components/Hero';
+import Sections from './components/Sections';
+import Portfolio from './components/Portfolio';
 
-function App() {
-  const [count, setCount] = useState(0)
-
+export default function App() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 to-blue-50 flex items-center justify-center">
-      <div className="bg-white p-8 rounded-lg shadow-lg">
-        <h1 className="text-3xl font-bold text-gray-800 mb-4">
-          Vibe Coding Platform
-        </h1>
-        <p className="text-gray-600 mb-6">
-          Your AI-powered development environment
-        </p>
-        <div className="text-center">
-          <button
-            onClick={() => setCount(count + 1)}
-            className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded"
-          >
-            Count is {count}
-          </button>
-        </div>
+    <div className="min-h-screen bg-slate-950 text-slate-200 antialiased selection:bg-cyan-500/30 selection:text-white">
+      {/* Subtle animated background grid */}
+      <div className="fixed inset-0 pointer-events-none">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(34,211,238,0.08),transparent_60%)]" />
+        <div className="absolute inset-0 opacity-40" style={{ backgroundImage: 'linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
       </div>
-    </div>
-  )
-}
 
-export default App
+      <Navbar />
+      <main className="relative">
+        <Hero />
+        <Sections />
+        <Portfolio />
+      </main>
+
+      <footer className="py-10 text-center text-slate-500 text-sm">
+        © {new Date().getFullYear()} Jayesh RL — Built with care.
+      </footer>
+    </div>
+  );
+}
